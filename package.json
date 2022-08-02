@@ -84,5 +84,16 @@
     "@babel/core": "^7.12.9",
     "react-native-svg-transformer": "^1.0.0"
   },
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremychiaaaaa/medical-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeremychiaaaaa/medical-app/issues"
+  },
+  "homepage": "https://github.com/jeremychiaaaaa/medical-app#readme",
+  "description": ""
 }

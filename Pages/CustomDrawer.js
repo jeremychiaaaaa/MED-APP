@@ -13,8 +13,8 @@ export const CustomDrawer = (props) => {
     contentContainerStyle={{backgroundColor:'rgba(67,179,174,1)'}}
 
     >
-        <ImageBackground source={require('./bg.jpeg')} style={{padding:20}}>
-        <Image source={require('../images/profile.jpeg')} style={{height:90, width:80, borderRadius:40, marginBottom:10}}/>
+        <ImageBackground source={require('../assets/bg.jpeg')} style={{padding:20}}>
+        <Image source={require('../assets/profile.jpeg')} style={{height:90, width:80, borderRadius:40, marginBottom:10}}/>
         <Text style={{fontSize:18}}>{username}</Text>
      
         

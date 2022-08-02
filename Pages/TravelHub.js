@@ -14,7 +14,7 @@ import PostOne from './PostOne'
 import AestheticStack from './Aesthetic/Aesthetic'
 import ElectiveSurgeryStack from './ElectiveSurgery/ElectiveSurgery'
 import CriticalIllnessStack from './CriticalIllness/CriticalIllness'
-import { CustomDrawer } from './CustomDrawer'
+
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSelector, useDispatch } from 'react-redux';

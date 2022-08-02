@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { StyleSheet, Button, TextInput, Text, View, Alert, KeyboardAvoidingView,TouchableOpacity,Image,Dimensions } from 'react-native'
+import { StyleSheet, Button, TextInput, Text, View, Alert,ScrollView, KeyboardAvoidingView,TouchableOpacity,Image,Dimensions, SafeAreaView } from 'react-native'
 import { Formik } from 'formik'
 import * as Yup from 'yup';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
@@ -67,7 +67,8 @@ const[withFilter, setWithFilter] = useState(true)
      const nav = useNavigation()
     return(
 
-        <View style={{flex:1, backgroundColor:'white', jstifyContent:'center', alignContent:'center'}}>
+        <SafeAreaView style={{flex:1, backgroundColor:'white', jstifyContent:'center', alignContent:'center'}}>
+          <ScrollView>
             <Text style={{ fontSize:28, fontWeight:'700', marginLeft:15, marginTop:20}}>When were you born {username} ? </Text>
             <Text style={{fontSize:16, fontWeight:'400', marginVertical:20,marginLeft:15,}}>Please also indicate your country of birth. The default is Singapore</Text>
             <TouchableOpacity onPress={switchVisible} style={{ padding:20,borderWidth:1, width:'90%', marginHorizontal:15,borderColor:'lightgrey',borderRadius:10}}>
@@ -78,7 +79,7 @@ const[withFilter, setWithFilter] = useState(true)
                   onChange={country => onSelect(country)}
          pointerEvents='none'
                   style={{fontSize:22}}
-                  
+                  placeholderTextColor='lightgrey'
                   selectTextOnFocus={false}
                     />
                     <Ionicons name='caret-down-outline' size={32} color={'lightgrey'} style={{alignSelf:'flex-end', position:'absolute', right:0, top:0,marginBottom:5}}/>
@@ -145,7 +146,7 @@ const[withFilter, setWithFilter] = useState(true)
 </>
 
 )}
-          
-        </View>
+          </ScrollView>
+        </SafeAreaView>
     )
 }

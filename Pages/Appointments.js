@@ -160,7 +160,7 @@ width:'100%',height:400
     renderRightActions(progress, i.id)
   }
 >
-             <View style={styles.card} >
+             <View style={styles.card} key={index} >
         
     <Text style={{fontSize:18, fontWeight:'600',color:'rgb(0,128,128)', letterSpacing:2, }}>{i.day} <Text style={{fontWeight:'600', fontSize:18}}>{i.month} {i.appt},</Text> {i.time}</Text>
      <TouchableOpacity onPress={() => nav.navigate('TeleConsult')} style={{width:'100%', marginTop:10, backgroundColor:'white', borderWdith:1, borderColor:'transparent', borderRadius:10, shadowColor: "#000",

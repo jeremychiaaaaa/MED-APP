@@ -7,10 +7,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 import Entypo from 'react-native-vector-icons/Entypo'
 import DRPage from './DRPage.js';
-import PhysicalAppointment from './PhysicalAppointment.js';
+import { FullAppointmentDates } from './FullAppointmentDates.js';
 import { AppointmentStack } from '../../Appointments.js';
-import TeleConsult from './TeleConsultation.js';
-import { FullAppointment } from './TeleConsultation.js';
+import BookAppointmentPage from './BookAppointmentPage.js';
+
 import ProgressBar from "react-native-animated-progress";
 import Appointments from '../../Appointments.js'
 export const DoctorContext = React.createContext()
@@ -109,8 +109,8 @@ export const DoctorContext = React.createContext()
             <Image style={styles.image} source={{uri: image}}/>
             <View style={{marginLeft:10, justifyContent:'center'}}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={{color: 'rgb(72,209,204)', fontWeight:'800',fontSize:20}}>Years of experience: {YOE}</Text>
-            <Text style={{fontWeight:'200',fontSize:16,}}>Currently working at: {hospital} hospital</Text>
+            <Text style={{color: 'rgb(72,209,204)', fontWeight:'800',fontSize:18}}>Years of experience: {YOE}</Text>
+            <Text style={{fontWeight:'200',fontSize:16, width:'90%'}}>Currently working at: {hospital} hospital</Text>
         
        </View>
         </View>
@@ -290,8 +290,8 @@ const dateChange = () => {
           })}
       
       component={DRPage} />
-      <Stack.Screen name='Physical Appointment' component={PhysicalAppointment} />
-      <Stack.Screen name= 'TeleConsult'
+     
+      <Stack.Screen name= 'Book Appointment'
        options={({navigation}) => ({
       headerShown:false,
      
@@ -319,7 +319,7 @@ const dateChange = () => {
           })}
       
       
-      component={TeleConsult} />
+      component={BookAppointmentPage} />
      <Stack.Screen name= 'Full Appointment'
        options={({navigation}) => ({
       headerShown:false,
@@ -348,7 +348,7 @@ const dateChange = () => {
           })}
       
       
-      component={FullAppointment} />
+      component={FullAppointmentDates} />
       <Stack.Screen name='Appointment Main' options={{headerShown:true}} component={Appointments} />
     </Stack.Navigator>
    </DoctorContext.Provider>

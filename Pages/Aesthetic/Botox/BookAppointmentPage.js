@@ -17,10 +17,11 @@ import { BlurView } from 'expo-blur';
 import moment from 'moment';
 import { LinearGradient } from 'expo-linear-gradient';
 import { DoctorContext } from './BotoxDoctor';
+import { FullAppointmentDates } from './FullAppointmentDates';
 import LottieView from 'lottie-react-native';
 const WIDTH = Dimensions.get('window').width
 const HEIGHT = Dimensions.get('window').height
-export default function TeleConsult() {
+export default function BookAppointmentPage() {
 
   const {doctor, setDoctor, fakeData, setFakeData,images,setImages, type, setType, calendarDate, setCalendarDate,clicked,setClicked,pressDate,setPressDate,pressDate1, setPressDate1, pressDate2, setPressDate2, pressDate3, setPressDate3,viewAppointment, setViewAppointment } = useContext(DoctorContext)
     const[selectedDate,setSelectedDate] = useState()
@@ -244,7 +245,7 @@ setStartingYear(datee.getFullYear())
 
 
     },[clicked])
-console.log(appt)
+
     return(
         <View>
           <LinearGradient 
@@ -291,7 +292,7 @@ start={{
 
 
 </LinearGradient>
-<View style={{borderWidth:1, borderTopLeftRadius:60, borderTopRightRadius:60, borderColor:'transparent',backgroundColor:'white', height:'100%', transform:[{translateY: -30}]}}>
+<View style={{borderWidth:1, borderTopLeftRadius:60, borderTopRightRadius:60, borderColor:'transparent',backgroundColor:'white', height:'100%', transform:[{translateY: -20}]}}>
   <View>
   <View style={{flexDirection:'row', padding:20, marginLeft:20}}>
   <Text style={{fontSize:20, fontWeight:'600'}}>
@@ -299,7 +300,7 @@ start={{
   </Text>
  
 </View>
-  <View key={1} style={{flexDirection:'row', marginHorizontal:30, alignContent:'space-around'}}>
+  <View key={1} style={{flexDirection:'row', marginHorizontal:20, alignContent:'space-around'}}>
     <TouchableOpacity style={{borderColor:'transparent', borderWidth:1, borderRadius:15, bottom:10, marginHorizontal:10, width:60, height:80, backgroundColor:pressDate ? 'rgba(67,179,174,0.5)' : 'rgba(220,220,220,0.2)'}} 
         onPress ={dateChange}
     >
@@ -361,7 +362,7 @@ start={{
        }  </Text>
     </View>
     </TouchableOpacity>
-    <TouchableOpacity style={{alignSelf:'center'}} onPress={() => nav.navigate('Full Appointment')}>
+    <TouchableOpacity style={{alignSelf:'center',bottom:10}} onPress={() => nav.navigate('Full Appointment')}>
      
      <Ionicons name='chevron-forward-circle-sharp' size={40} color={'rgba(67,179,174,1)'} style={{marginLeft:2}}/>
  </TouchableOpacity>
@@ -371,10 +372,11 @@ start={{
 
       
          
-          <Text style={{marginLeft:20, padding:20, marginTop:0, fontWeight:'700', fontSize:20}}>Select TeleConsult Time</Text>
+          <Text style={{marginLeft:20, padding:20, marginTop:0, fontWeight:'700', fontSize:20}}>Select {type==='Tele-Consult' ? <Text>Teleconsult</Text> : <Text>Physical Appointment</Text>} Time</Text>
           
                 <FlatList 
             data={data}
+            
             renderItem={({item}) => 
             <TouchableOpacity  onPress={ () => {
                  setClick(item.id)
@@ -425,12 +427,12 @@ start={{
               onPress={confirm ? () =>{ 
                 setModalVisible(false)
              dispatch(setBookAppointment(true))
-            console.log(appt)
+
                 nav.navigate('Appointment') }:     async() => {
           
                 try {
                      setWaiting(true)
- dispatch(setAppointmentType(type))
+                    dispatch(setAppointmentType(type))
                 
                   console.log(date)
                   const a = {date,time,doctor,type,images}
@@ -560,7 +562,7 @@ const styles= StyleSheet.create({
         padding:10,
         width:100,
         height:50,
-        marginLeft:30,
+        marginLeft:25,
         marginBottom:10,
        alignSelf:'center',
 backgroundColor:'rgba(220,220,220,0.2)',
@@ -574,7 +576,7 @@ justifyContent:'center'
      width:100,
      height:50,
         alignSelf:'center',
-        marginLeft:30,
+        marginLeft:25,
         marginBottom:10,
         borderRadius:10,
         justifyContent:'center'
@@ -651,32 +653,3 @@ justifyContent:'center'
   
 
 })
-
-export const FullAppointment = () => {
-  const {doctor, setDoctor, fakeData, setFakeData,images,setImages, type, setType, calendarDate, setCalendarDate,clicked,setClicked,pressDate,setPressDate,pressDate1, setPressDate1, pressDate2, setPressDate2, pressDate3, setPressDate3 } = useContext(DoctorContext)
- const dateChange = (date) => {
-  
-  
-  
-  setCalendarDate(date)
-   setClicked(true)
-    setPressDate(true)
-    setPressDate2(false)
-    setPressDate3(false)
-    setPressDate1(false)
-  nav.navigate('TeleConsult')
- setClicked(!clicked)
-}
- const disabledDates = ["2022-04-18", "2022-04-19", "2022-04-21", "2022-04-25"] 
- const nav = useNavigation()
-  return(
-  <View style={{marginTop:100}}>
-      <TouchableOpacity onPress={() => nav.navigate('TeleConsult')}>
-<Ionicons name='chevron-back-outline' size={32} style={{color:'rgb(67,179,174)', padding:10,paddingVertical:5, borderRadius:15, borderWidth:1, marginLeft:25, bottom:0,backgroundColor:'rgba(176,224,230,0.7)', borderColor:'transparent', width:60, paddingHorizontal:12}}/>
-</TouchableOpacity>
-    <CalendarPicker onDateChange={dateChange} disabledDates={disabledDates} startFromMonday={true}/>
-
- 
-  </View>
-  )
-}

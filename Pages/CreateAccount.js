@@ -17,7 +17,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const{width,height} = Dimensions.get('window')
 const ReviewSchema = Yup.object().shape({
- 
+    username: Yup.string().required('This is a required field'),
     email: Yup.string().email('Not a valid email').required('This is a required field'),
     password: Yup.string().required('This is a required field').matches(
         /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
@@ -88,7 +88,8 @@ export default function CreateAccount() {
                 value={props.values.username} 
                 />    
                 </View>
-                <View style={{flexDirection:'row', borderBottomColor:'lightgrey', borderBottomWidth:1,paddingBottom:5,marginTop:25}}>
+                <Text style={{fontSize:14, marginTop:10,color:'red'}}>{props.errors.username}</Text>
+                <View style={{flexDirection:'row', borderBottomColor:'lightgrey', borderBottomWidth:1,paddingBottom:5,marginTop:15}}>
                       <Ionicons name='at-circle-outline' size={32} style={{color:'grey'}}/>
                 <TextInput 
                 placeholder='Email'
@@ -99,7 +100,7 @@ export default function CreateAccount() {
                 />
                
                 </View>
-                   <Text style={{fontSize:14}}>{props.errors.email}</Text>
+                   <Text style={{fontSize:14,marginTop:10,color:'red'}}>{props.errors.email}</Text>
                 <View style={{flexDirection:'row', borderBottomColor:'lightgrey', borderBottomWidth:1,paddingBottom:5,marginTop:25}}>
                       <Ionicons name='lock-closed-outline' size={32} style={{color:'grey'}}/>
                     
@@ -114,7 +115,7 @@ export default function CreateAccount() {
                 secureTextEntry
                 />
                </View>
-                <Text style={{fontSize:14, marginTop:10,}}>{props.errors.password}</Text>
+                <Text style={{fontSize:14, marginTop:10,color:'red'}}>{props.errors.password}</Text>
                 <TouchableOpacity style={{alignSelf:'center', width:'90%', marginHorizontal:15, padding:15,    backgroundColor:'rgba(67,179,174,1)',
    borderColor:'transparent', borderWidth:1, borderRadius:15,marginTop:15 }} onPress={props.handleSubmit}>
                     <Text style={{alignSelf:'center',color:'white',fontSize:20, fontWeight:'600'}}>Submit</Text>

@@ -14,7 +14,7 @@ import PostOne from './PostOne'
 import AestheticStack from './Aesthetic/Aesthetic'
 import ElectiveSurgeryStack from './ElectiveSurgery/ElectiveSurgery'
 import CriticalIllnessStack from './CriticalIllness/CriticalIllness'
-import { CustomDrawer } from './CustomDrawer'
+
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSelector, useDispatch } from 'react-redux';
@@ -215,7 +215,7 @@ const downloadFile = async () => {
        <View style={styles.centeredView}>
          <View style={styles.modalView}>
              <Text style={{fontSize:24}}>
-                 We have successfully added your document. Click to view it ! 
+             ✅ We have successfully added your document. Click to view it ! 
              </Text>
          <TouchableOpacity style={{ paddingHorizontal:30,  alignItems:'center', justifyContent:'flex-end', height:60, flexDirection:'row',borderWidth:1, marginHorizontal:20, marginTop:15, borderRadius:20 }}
           onPress={downloadFile}

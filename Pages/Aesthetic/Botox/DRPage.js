@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { DoctorContext } from './BotoxDoctor';
-import PhysicalAppointment from './PhysicalAppointment';
+
 import { AppointmentStack } from '../../Appointments';
 import { SliderBox } from 'react-native-image-slider-box';
 import ProgressBar from "react-native-animated-progress";
@@ -62,7 +62,7 @@ start={{
 <Text style={{marginTop:5, fontWeight:'300', fontSize:18}}>Botox Doctor</Text>
 </View>
 </View>
-<View style={{ flexDirection:'row', width:'100%',alignItems:'center' }}>
+<View style={{ flexDirection:'row', width:'100%',alignItems:'center',justifyContent:'center', transform:[{translateX:-12}] }}>
     <View>
     <Feather name='users' size={28} color={'rgb(72,209,204)'} style={{backgroundColor:'rgba(255,255,255,0.9)', width:70, paddingVertical:10, paddingHorizontal:20,marginLeft:55, justifyContent:'center', alignContent:'center', top:20, zIndex:3, borderWidth:1, borderRadius:10,overflow:'hidden', borderColor:'rgba(244,240,236,0.1)'}}/>
     <TouchableOpacity style={{borderwidth:1, backgroundColor:'rgba(231,254,255,0.5)', width:100, marginLeft:40, height:80, borderRadius:10, }}>
@@ -122,7 +122,7 @@ flexDirection:'row',
 alignItems:'center',
 width:'90%'
 }}  onPress={() => {
-            nav.navigate('TeleConsult')
+            nav.navigate('Book Appointment')
             setType('Tele-Consult')
             }}>
            
@@ -141,7 +141,7 @@ flexDirection:'row',
 alignItems:'center',
 width:'90%',
 borderColor:'transparent' }} onPress={() => {
-            nav.navigate('Physical Appointment')
+            nav.navigate('Book Appointment')
             setType('Physical Appointment')
             }}>
                <Ionicons name='business' size={28} style={{color:'rgb(209,159,232)', transform:[{translateX:5}]}} />

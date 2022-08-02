@@ -3,7 +3,7 @@ import { StyleSheet, Button, TextInput, Text, View, Alert, KeyboardAvoidingView,
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Documents from './Documents'
 import {AppointmentStack} from './Appointments'
-import Profile from './Profile'
+
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 import Post from './Post'
@@ -29,7 +29,7 @@ import { useFonts } from 'expo-font';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const Tab = createBottomTabNavigator()
-const doctorImage = require('./doctor.png')
+const doctorImage = require('../assets/doctor.png')
 const Drawer = createDrawerNavigator()
 import { ProfileStack } from './Profile'
 export default function HomePage() {
@@ -248,10 +248,10 @@ start={{
   clicked={clicked}
   setClicked={setClicked}
 />
-  <View style={{padding:30,  width:'90%',justifyContent:'center', bottom:20}}>
+  <View style={{padding:30,  width:'90%',justifyContent:'center', bottom:20,}}>
 
       <View style={{flexDirection:'row', alignItems:'center',alignContent:'space-between', width:'100%'}}>
-  <Text style={{fontSize:24, fontWeight:'700', width:'70%'}}>
+  <Text style={{fontSize:24, fontWeight:'700', width:'80%'}}>
       How can we help ?
   </Text>
   <TouchableOpacity style={{alignSelf:'flex-end', flexDirection:'row',alignItems:'center', position:'absolute', right:0,transform:[{translateX: 40}] }}>

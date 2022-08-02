@@ -3,9 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Index from './Pages/SignUp';
+
 import LogIn from './Pages/LogIn';
-import SignUp from './Pages/SignUp';
+
 import WelcomePage from './Pages/WelcomePage';
 import HomePage from './Pages/HomePage';
 import PostOne from './Pages/PostOne';
